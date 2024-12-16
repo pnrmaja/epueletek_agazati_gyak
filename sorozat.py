@@ -1,18 +1,46 @@
 import random
 
 def veletlen_dobasok():
-    dobasok = [random.choice([0, 1]) for _ in range(7)]
+    print("II/A, B, C:")
+    dobasok_szamok:list[int] = []
+    dobasok_szoveg:list[str]= []
+    
+    
 
-    dobasok_kifejezes = ["FEJ" if dobas == 1 else "ÍRÁS" for dobas in dobasok]
+    for _ in range(7):
+        dobas:int = random.randint(0,1)
+        dobasok_szamok.append(dobas)        
+    
+    
+    for dobas in dobasok_szamok:
+        if dobas == 0:
+            dobasok_szoveg.append("ÍRÁS")
+        else:
+            dobasok_szoveg.append("FEJ")
+
+    print("-".join(dobasok_szoveg))
+    return dobasok_szamok
 
 
-    print("-".join(dobasok_kifejezes))
+def fejek_szama(dobasok_szamok:int):
+     
+    return dobasok_szamok.count(1)
 
-    fejek_szama = dobasok.count(1)
+    
 
-    return fejek_szama
+def konzol_kiir(fej_szam:int):
+    print("II/D, E:")
+    
+    
+    print(f"A fejek száma: {fej_szam}.")
+
+def file_kiir(fej_szam:int):
+    print("II/F:")
+    with open("fejek.txt", 'w',encoding='utf-8') as file:
+        file.write(f"A fejek száma: {fej_szam}. ")
 
 
-def konzol_kiir(fejek_szama):
-    print(f"A fejek száma: {fejek_szama}.")
+
+
+
 
